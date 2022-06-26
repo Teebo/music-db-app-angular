@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatInputModule } from '@angular/material/input'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FansCountPipe } from 'src/app/pipes/fans-count.pipe';
 
 const MatModules = [
   MatToolbarModule,
@@ -17,7 +18,7 @@ const MatModules = [
 
 
 @NgModule({
-  declarations: [],
+  declarations: [FansCountPipe],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -25,7 +26,8 @@ const MatModules = [
   ],
   exports: [
     FlexLayoutModule,
-    ...MatModules
+    ...MatModules,
+    FansCountPipe
   ]
 })
 export class SharedModule { }

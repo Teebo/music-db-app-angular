@@ -3,26 +3,38 @@
     <section class="search-filter-container p-8" fxLayout="row" fxLayoutAlign="center">
       <form fxFlex="60" class="search-form">
         <mat-form-field fxFlex="100" class="field" appearance="outline">
-          <mat-hint
-          >Search so many artists</mat-hint
-        >
-          <input type="text"
-                 placeholder="Search artist"
-                 aria-label="Search artist"
-                 matInput
-                 [formControl]="searchControl"
-                 [matAutocomplete]="auto">
-                 <mat-icon color="accent" class="search-icon" matSuffix
-                 >search</mat-icon
-               >
+          <mat-hint>Search so many artists</mat-hint>
+          <input type="text" placeholder="Search artist" aria-label="Search artist" matInput
+            [formControl]="searchControl" [matAutocomplete]="auto">
+          <mat-icon color="accent" class="search-icon" matSuffix>search</mat-icon>
           <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-            <mat-option (onSelectionChange)="artistSelectionChange(option)" *ngFor="let option of artistsOptions$ | async" [value]="option.name">
+            <mat-option (onSelectionChange)="artistSelectionChange(option)"
+              *ngFor="let option of artistsOptions$ | async" [value]="option.name">
               {{option.name}}
             </mat-option>
           </mat-autocomplete>
         </mat-form-field>
       </form>
     </section>
-    <section class="artists-container"></section>
+    <section class="artists-container" fxLayout="row wrap" fxLayout="row wrap" fxLayout.lt-sm="column"
+      fxLayoutGap="32px" [ngStyle.gt-sm]="{'padding-left.px': 32}" fxLayoutAlign="flex-start">
+
+      <ng-container *ngFor="let artist of artistsOptions$| async">
+        <a [routerLink]="[artist.id]" fxFlex="0 1 calc(33.3% - 32px)" fxFlex.lt-md="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" class="card mb-6">
+          <div fxLayout="row">
+            <div fxLayout="column" fxLayoutAlign="flex-start center" class="header">
+              <img [src]="artist.picture_medium" alt="" />
+              <h3>{{ artist.name }}</h3>
+            </div>
+            <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+              <p>
+                <strong>{{ artist.nb_fan | fansCount}}</strong> Fans
+              </p>
+            </div>
+          </div>
+        </a>
+      </ng-container>
+
+    </section>
   </div>
 </div>

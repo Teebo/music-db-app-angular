@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, from, map, Observable } from 'rxjs';
@@ -14,8 +13,8 @@ export class DefaultComponent implements OnInit {
   searchControl = new FormControl('');
   artistsOptions$: Observable<IArtist[]> | Observable<[]> = from([]);
   constructor(
-    private http: HttpClient,
-    private artistsService: ArtistsService
+    private artistsService: ArtistsService,
+
     ) { }
 
   ngOnInit(): void {
@@ -47,6 +46,8 @@ export class DefaultComponent implements OnInit {
       }
     );
   }
+
+  // Filter/refine artists response again
 
   private _filter(artists: any, filterValue: string): IArtist[] {
     const searchReg = new RegExp(filterValue, 'ig')
