@@ -19,9 +19,11 @@ export class DefaultComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+
     this.activatedRoute.params
     .subscribe(
       (params: any) => {
+        this.artist = this.store.snapshot().app.artists[params.id];
         console.log(this.store.snapshot().app.artists);
         // this.artistsService.getArtist(params.id)
         // .subscribe(
