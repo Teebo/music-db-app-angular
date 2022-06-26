@@ -1,4 +1,7 @@
-<div fxLayout="row" fxLayoutAlign="center" class="artist-view-container">
+<div fxLayout="row" fxLayoutAlign="center" class="artist-view-container mt-10">
+  <button (click)="onBack()" mat-fab color="accent" aria-label="Example icon button with a bookmark icon">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
   <div class="inner-container" fxLayout="column" fxFlex.gt-md="80" fxFlex.lt-sm="100">
     <section class="artist p-8" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center">
       <div

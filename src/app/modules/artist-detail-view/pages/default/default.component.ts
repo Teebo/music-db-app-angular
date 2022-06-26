@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArtistsService } from 'src/app/services/artists.service';
 import { IAlbum, IArtist, ITrack } from 'src/app/state/app/app.state';
 
@@ -17,7 +17,8 @@ export class DefaultComponent implements OnInit {
   constructor(
     private artistsService: ArtistsService,
     private activatedRoute: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -47,6 +48,10 @@ export class DefaultComponent implements OnInit {
 
   getImageUrl(url: string): any {
     return this.sanitizer.bypassSecurityTrustStyle(`url(${url})`);
+  }
+
+  onBack(): void {
+    this.router.navigate(['/artists']);
   }
 
 }
