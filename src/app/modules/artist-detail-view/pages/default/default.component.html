@@ -4,31 +4,35 @@
   </button>
   <div class="inner-container" fxLayout="column" fxFlex.gt-md="80" fxFlex.lt-sm="100">
     <section class="artist p-8" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center">
-      <div
-      *ngIf="artist"
-      [style.background-image]="getImageUrl(artist.picture_xl)"
-      [ngStyle]="{
+      <div *ngIf="artist" [style.background-image]="getImageUrl(artist.picture_xl)" [ngStyle]="{
         'background-image': 'url(' + artist.picture_xl + ')',
         'background-position': 'center',
         'background-repeat': 'no-repeat',
         'background-size': 'cover'
-      }"
-      class="image-container"></div>
+      }" class="image-container"></div>
       <div class="top-tracks-container" fxLayout="column" fxLayoutAlign="center center">
         <h1>Top 5 Tracks</h1>
-        <mat-list role="list">
+        <mat-list *ngIf="trackList.length" role="list">
           <mat-list-item *ngFor="let track of trackList" role="listitem">{{track.title}}</mat-list-item>
         </mat-list>
+        <div *ngIf="!trackList.length">
+          <p>There are no top tracks for this artist</p>
+        </div>
       </div>
+
     </section>
-    <section  class="albums p-8" fxLayout="column" fxLayoutAlign="center center">
+    <section class="albums p-8" fxLayout="column" fxLayoutAlign="center center">
       <h1>Top Five Albums</h1>
 
+      <ng-container *ngIf="albums.length">
         <div class="mb-5 album" *ngFor="let album of albums" fxLayout="row">
           <img class="mr-5" [src]="album.cover_small" alt="">
           <p>{{album.title}}</p>
         </div>
-
+      </ng-container>
+      <div *ngIf="!albums.length">
+        <p>There are no albums for this artist</p>
+      </div>
     </section>
   </div>
 </div>
