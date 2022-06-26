@@ -2,7 +2,6 @@
   .inner-container {
     .artist {
       .image-container {
-        background-color: aqua;
         height: 400px;
         width: 60%;
       }
@@ -22,7 +21,6 @@
     @media (max-width: 600px) {
       .artist {
         .image-container {
-          background-color: aqua;
           height: 200px;
           width: 100%;
         }

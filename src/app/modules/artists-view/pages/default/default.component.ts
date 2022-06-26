@@ -22,7 +22,7 @@ export class DefaultComponent implements OnInit {
 
   ngOnInit(): void {
     this.artistsOptions$ =  this.store.select(state => state.app.artists).pipe(map(artists => Object.values(artists)));
-
+    this.artistsService.getArtists('FKJ').subscribe();
     this.searchControl.valueChanges
     .pipe(
       debounceTime(500),

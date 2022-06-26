@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { Store } from '@ngxs/store';
-import { switchMap } from 'rxjs';
 import { ArtistsService } from 'src/app/services/artists.service';
 import { IAlbum, IArtist, ITrack } from 'src/app/state/app/app.state';
 
@@ -19,29 +17,14 @@ export class DefaultComponent implements OnInit {
   constructor(
     private artistsService: ArtistsService,
     private activatedRoute: ActivatedRoute,
-    private store: Store,
     private sanitizer: DomSanitizer
     ) { }
 
   ngOnInit(): void {
-
     this.activatedRoute.data
     .subscribe(
       (data: any) => {
         this.artist = data.artist;
-
-        // this.artist = this.store.snapshot().app.artists[params.id];
-
-        // this.store.select(state => state.app.artists[params.id])
-        // .pipe(
-        //   switchMap(
-        //     (artist) => {
-        //       if(artist) {
-        //         return
-        //       }
-        //     }
-        //   )
-        // )
 
         this.artistsService.getTrackList(this.artist.id)
         .subscribe(
@@ -51,26 +34,15 @@ export class DefaultComponent implements OnInit {
           }
         );
 
-
         this.artistsService.getAlbums(this.artist.id)
         .subscribe(
           (albums: IAlbum[]) => {
             this.albums = albums;
             console.log(this.albums)
           }
-        )
-
-        // this.artistsService.getArtist(params.id)
-        // .subscribe(
-        //   (artist) => {
-        //     this.artist = artist;
-        //   }
-        // )
+        );
       }
     );
-
-
-
   }
 
   getImageUrl(url: string): any {
