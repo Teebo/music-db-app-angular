@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatIconModule } from '@angular/material/icon'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './pages/home/home.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 const MatModules = [
   MatToolbarModule,
@@ -19,7 +20,8 @@ const MatModules = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
