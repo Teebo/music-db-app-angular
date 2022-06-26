@@ -1,0 +1,38 @@
+.artist-view-container {
+  .inner-container {
+    .artist {
+      .image-container {
+        background-color: aqua;
+        height: 400px;
+        width: 60%;
+      }
+
+      .top-tracks-container {
+        height: 400px;
+        width: 40%;
+      }
+    }
+
+    .albums {
+      .album {
+        width: 300px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .artist {
+        .image-container {
+          background-color: aqua;
+          height: 200px;
+          width: 100%;
+        }
+
+        .top-tracks-container {
+          min-height: 200px;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

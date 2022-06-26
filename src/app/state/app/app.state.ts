@@ -3,7 +3,7 @@ import { State, Action, StateContext, Select } from '@ngxs/store';
 import {  AppActions } from './app.actions';
 
 export interface IArtist {
-  id: number | string;
+  id: number;
   name: string;
   link: string;
   share: string;
@@ -16,6 +16,33 @@ export interface IArtist {
   nb_fan: number;
   radio: boolean;
   tracklist: string;
+}
+
+export interface IAlbum {
+  id: number;
+  title: string;
+  cover: string;
+  cover_small: string;
+  cover_medium: string;
+  cover_big: string;
+  cover_xl: string;
+  link: string;
+  nb_tracks: string;
+  label: string;
+  duration: number;
+  fans: string;
+  rating: string;
+  release_date: string;
+}
+
+export interface ITrack {
+  id: number;
+  title: string;
+  link: string;
+  duration: number;
+  track_position: string;
+  preview: string;
+
 }
 
 export type ArtistsDictionary = Record<number | string, IArtist>
