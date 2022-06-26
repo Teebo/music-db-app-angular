@@ -40,6 +40,13 @@ export class ArtistsService {
       catchError(handleError)
     );
   }
+
+  getArtist(id: number): Observable<IArtist> {
+    return this.http.get(`${environment.apiURL}search/artist`, {params: {q: id, limit: 1}}).pipe(
+      map(res => res as IArtist),
+      catchError(handleError)
+    );
+  }
 }
 
 

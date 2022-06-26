@@ -1,7 +1,7 @@
 <div fxLayout="row" fxLayoutAlign="center" class="artists-view-container">
   <div class="inner-container" fxLayout="column" fxFlex.gt-md="80" fxFlex.lt-sm="100">
     <section class="search-filter-container p-8" fxLayout="row" fxLayoutAlign="center">
-      <form fxFlex="60" class="search-form">
+      <form fxFlex="60" fxFlex.lt-sm="90" class="search-form">
         <mat-form-field fxFlex="100" class="field" appearance="outline">
           <mat-hint>Search so many artists</mat-hint>
           <input type="text" placeholder="Search artist" aria-label="Search artist" matInput
@@ -29,6 +29,11 @@
             <div fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
               <p>
                 <strong>{{ artist.nb_fan | fansCount}}</strong> Fans
+              </p>
+            </div>
+            <div fxHide.lt-sm="true" fxShow.gt-sm="true" fxFlex="100" fxLayout="row" fxLayoutAlign="center center">
+              <p>
+                <strong >{{ artist.nb_album}}</strong> Albums
               </p>
             </div>
           </div>

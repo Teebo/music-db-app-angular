@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Select, Store } from '@ngxs/store';
 import { debounceTime, distinctUntilChanged, from, map, Observable } from 'rxjs';
 import { ArtistsService } from 'src/app/services/artists.service';
-import { IArtist } from 'src/app/state/app/app.state';
+import { AppState, IArtist } from 'src/app/state/app/app.state';
 
 @Component({
   selector: 'app-default',
@@ -12,12 +13,16 @@ import { IArtist } from 'src/app/state/app/app.state';
 export class DefaultComponent implements OnInit {
   searchControl = new FormControl('');
   artistsOptions$: Observable<IArtist[]> | Observable<[]> = from([]);
+  @Select(AppState.artists)
+  artists$!: Observable<IArtist[]> | Observable<[]>;
   constructor(
     private artistsService: ArtistsService,
-
+    private store: Store
     ) { }
 
   ngOnInit(): void {
+    this.artistsOptions$ =  this.store.select(state => state.app.artists).pipe(map(artists => Object.values(artists)));
+
     this.searchControl.valueChanges
     .pipe(
       debounceTime(500),

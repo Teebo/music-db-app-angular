@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { State, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext, Select } from '@ngxs/store';
 import {  AppActions } from './app.actions';
 
 export interface IArtist {
@@ -37,5 +37,10 @@ export class AppState {
   AddArtists({ getState, setState }: StateContext<AppStateModel>, { artists }: AppActions.AddArtists) {
     const state = getState();
     setState({ artists: {...state.artists, ...artists} });
+  }
+
+  @Select()
+  static artists(state: AppStateModel) {
+    return state.artists;
   }
 }
