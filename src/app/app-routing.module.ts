@@ -5,7 +5,22 @@ import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    redirectTo: '/artists',
+    pathMatch: 'full',
+  },
+  {
+    path: 'artists',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/artists-view/artists-view.module').then(m => m.ArtistsViewModule)
+      },
+      {
+        path: ':id',
+        loadChildren: () => import('./modules/artist-detail-view/artist-detail-view.module').then(m => m.ArtistDetailViewModule)
+      }
+    ]
   }
 ];
 
