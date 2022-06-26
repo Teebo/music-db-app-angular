@@ -1,7 +1,14 @@
-export function normalizeValue(value: string): string {
-	if (value) {
-		return value.toLowerCase().replace(/\s/g, '');
-	}
+import { HttpErrorResponse } from '@angular/common/http';
+import { throwError } from 'rxjs';
 
-  return '';
+export const handleError = (err: HttpErrorResponse) => {
+  let errorMessage = '';
+
+  if (err.error instanceof ErrorEvent) {
+    errorMessage = `An error occurred: ${err.error.message}`;
+  } else {
+    errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+  }
+
+  return throwError(() => new Error(errorMessage));
 }

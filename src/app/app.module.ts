@@ -9,6 +9,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app/app.state';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
@@ -21,9 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    NgxsModule.forRoot([AppState], {
-      developmentMode: false
-    }),
+    NgxsModule.forRoot([AppState]),
+    NgxsReduxDevtoolsPluginModule.forRoot({name: 'Angular deezer app'}),
     HttpClientModule
   ],
   providers: [],

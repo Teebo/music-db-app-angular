@@ -18,12 +18,13 @@ export interface IArtist {
   tracklist: string;
 }
 
+export type ArtistsDictionary = Record<number | string, IArtist>
 export class AppStateModel {
-  public artists: IArtist[] = [];
+  public artists: ArtistsDictionary = {};
 }
 
 const defaults = {
-  artists: []
+  artists: {}
 };
 
 @State<AppStateModel>({
@@ -35,6 +36,6 @@ export class AppState {
   @Action(AppActions.AddArtists)
   AddArtists({ getState, setState }: StateContext<AppStateModel>, { artists }: AppActions.AddArtists) {
     const state = getState();
-    setState({ artists: [ ...state.artists, ...artists ] });
+    setState({ artists: {...state.artists, ...artists} });
   }
 }
