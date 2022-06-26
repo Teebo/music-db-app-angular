@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ArtistDetailViewRoutingModule } from './artist-detail-view-routing.module';
 import { DefaultComponent } from './pages/default/default.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { DefaultComponent } from './pages/default/default.component';
   ],
   imports: [
     CommonModule,
-    ArtistDetailViewRoutingModule
+    ArtistDetailViewRoutingModule,
+    SharedModule
   ]
 })
 export class ArtistDetailViewModule { }

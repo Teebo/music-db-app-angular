@@ -1,0 +1,19 @@
+@import 'mixins/spacing';
+
+// PADDING
+@include pl-x;
+@include pr-x;
+@include pt-x;
+@include pb-x;
+@include p-x;
+@include py-x;
+@include px-x;
+
+// MARGIN
+@include ml-x;
+@include mr-x;
+@include mt-x;
+@include mb-x;
+@include m-x;
+@include my-x;
+@include mx-x;
