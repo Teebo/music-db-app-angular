@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ArtistsService } from 'src/app/services/artists.service';
-import { IAlbum, IArtist, ITrack } from 'src/app/state/app/app.state';
+import { ArtistsService } from '../../../../services/artists.service';
+import { IAlbum, IArtist, ITrack } from '../../../../state/app/app.state';
 
 @Component({
   selector: 'app-default',

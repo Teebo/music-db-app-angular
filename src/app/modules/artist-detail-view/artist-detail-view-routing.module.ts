@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ArtistResolver } from 'src/app/resolvers/artist.resolver';
+import { ArtistResolver } from '../../resolvers/artist.resolver';
 import { DefaultComponent } from './pages/default/default.component';
 
 const routes: Routes = [

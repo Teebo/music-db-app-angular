@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Select, Store } from '@ngxs/store';
 import { debounceTime, distinctUntilChanged, from, map, Observable } from 'rxjs';
-import { ArtistsService } from 'src/app/services/artists.service';
-import { AppState, IArtist } from 'src/app/state/app/app.state';
+import { ArtistsService } from '../../../../services/artists.service';
+import { AppState, IArtist } from '../../../../state/app/app.state';
 
 @Component({
   selector: 'app-default',

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { catchError, map, Observable, tap } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 import { AppActions } from '../state/app/app.actions';
 import { ArtistsDictionary, IAlbum, IArtist, ITrack } from '../state/app/app.state';
 import { handleError } from '../utils/common';

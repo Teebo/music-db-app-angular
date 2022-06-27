@@ -7,7 +7,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { MatListModule } from '@angular/material/list'
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { FansCountPipe } from 'src/app/pipes/fans-count.pipe';
+import { FansCountPipe } from '../../pipes/fans-count.pipe';
 
 const MatModules = [
   MatToolbarModule,
