@@ -9,7 +9,7 @@ import { SharedModule } from './modules/shared/shared.module';
 import { NgxsModule } from '@ngxs/store';
 import { AppState } from './state/app/app.state';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
+// import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     BrowserAnimationsModule,
     SharedModule,
     NgxsModule.forRoot([AppState]),
-    NgxsReduxDevtoolsPluginModule.forRoot({name: 'Angular deezer app'}),
+    // NgxsReduxDevtoolsPluginModule.forRoot({name: 'Angular deezer app'}),
     HttpClientModule
   ],
   providers: [],
